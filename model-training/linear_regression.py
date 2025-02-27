@@ -1,4 +1,5 @@
 import pandas as pd
+import pickle
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -71,6 +72,12 @@ print("\nModel Performance:")
 print(f"Mean Squared Error: {mse:.2f}")
 print(f"Root Mean Squared Error: {rmse:.2f}")
 print(f"R² Score: {r2:.4f}")
+
+# Create a directory for saving the model if it doesn't exist
+os.makedirs('models', exist_ok=True)
+
+# Save the model
+pickle.dump(model, open('models/linear_regression.pkl', 'wb'))
 
 # Display model coefficients
 print("\nModel Coefficients:")
